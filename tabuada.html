@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabuada</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="js/script.js"></script> -->
+    <script src="js/functions.js"></script>
+    <!-- <script src="js/functions.js"></script> -->
 </head>
 <body>
     <div id="header">
@@ -20,22 +21,29 @@
 
     <div id="contend">
         <div id="tabuada-soma">
+            <button onclick="gerarTabuada('soma')">GERAR</button>
             <h1>SOMA</h1>
         </div>
 
         <div id="tabuada-sub">
+            <button onclick="gerarTabuada('subtracao')">GERAR</button>
+
             <h1>SUBTRAÇÃO</h1>
         </div>
 
         <div id="tabuada-div">
+            <button onclick="gerarTabuada('multiplicacao')">GERAR</button>
+
             <h1>DIVISÃO</h1>
         </div>
 
         <div id="tabuada-mult">
+            <button onclick="gerarTabuada('divisao')">GERAR</button>
+
             <h1>MULTIPLICAÇÃO</h1>
         </div>
     </div>
 
-<script src="js/tabuada.js"></script>
+<!-- <script src="js/tabuada.js"></script> -->
 </body>
 </html>
