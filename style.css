@@ -34,8 +34,9 @@ body {
     padding: 20px;
 }
 
-#contend {
+.contend {
     width: 100%;
+    height: 100%;
     display: flex;
     /* align-items: center; */
     align-content: center;
@@ -97,4 +98,68 @@ button{
     border: none;
     border-radius: 10px;
     background-color: #0077ff;
+}
+
+#body-tab{
+    background: gray;
+    width: 400px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#display{
+    background: gainsboro;
+    width: 350px;
+    height: 40px;
+    margin: 20px 10px;
+}
+
+.case-buttons{
+    background: rgba(241, 241, 241, 0);
+    width: 390px;
+    height: 390px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttons-tab{
+    background: rgb(238, 240, 240);
+    width: 96px;
+    height: 80px;
+    border: 1px solid #b3b3b3;
+    text-align: center;
+    color:black;
+    border-radius: 0px;
+}
+
+.buttons-tab:hover{
+    background: rgb(216, 216, 216);
+
+}
+
+.c{
+    background: rgb(207, 40, 18);
+    }
+
+.c:hover{
+    background: rgb(139, 29, 14);
+    }
+
+.equal{
+    background: rgb(204, 162, 22);
+    }
+.equal:hover{
+    background: rgb(146, 116, 15);
+    }
+
+.calc {
+    background: #3eb980;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 200px;
 }

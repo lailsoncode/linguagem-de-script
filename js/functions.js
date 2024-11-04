@@ -55,3 +55,9 @@ function gerarTabuada(operacao){
             alert("Opção Inválida")
     }
 }
+
+function digitarNumeros(){
+    // alert("Opção Inválida")
+
+    document.getElementsById("display").innerHTML += "1";
+}
