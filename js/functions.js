@@ -56,8 +56,36 @@ function gerarTabuada(operacao){
     }
 }
 
-function digitarNumeros(){
-    // alert("Opção Inválida")
+let numeros = [];
+let operacao = null;
 
-    document.getElementsById("display").innerHTML += "1";
+function digitarNumeros(n) {
+    var display = document.getElementById("display")
+    if (n == "C"){
+        display.innerHTML = "";
+        numeros = [];
+    } else if (n == "+"){
+        operacao = 'soma';
+        numeros.push(display.innerHTML)
+        display.innerHTML += "+"
+    } else if (n == "-"){
+        operacao = 'subtracao';
+        numeros.push(display.innerHTML)
+        display.innerHTML += "-"
+    } else if (n == "="){
+        if (operacao == 'soma'){
+            numeros.push(display.innerHTML)
+            console.log(numeros)
+            console.log(operacao)
+            display.innerHTML = parseInt(numeros[0]) + parseInt(numeros[1])
+
+        } else if (operacao == 'subtracao'){
+            numeros.push(display.innerHTML)
+            console.log(numeros)
+            console.log(operacao)
+            display.innerHTML = parseInt(numeros[0]) - parseInt(numeros[1])
+        }
+    } else {
+        display.innerHTML += n
+    }
 }
