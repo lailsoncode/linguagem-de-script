@@ -3,13 +3,13 @@
 // – Celsius para Fahrenheit.
 // 2.Integre esse módulo em uma aplicação Node.js que
 // interaja com o usuário via terminal (readline).
-s
+
 function metrosParaKm(metros) {
     return metros / 1000;
   }
   
   function celsiusParaFahrenheit(celsius) {
-    return celsius * 1.8 + 32;
+    return (celsius * 1.8) + 32;
   }
   
   module.exports = {

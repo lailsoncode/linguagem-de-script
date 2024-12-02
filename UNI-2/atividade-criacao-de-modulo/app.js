@@ -10,6 +10,7 @@ function menu() {
     console.log('1. Metros para quilômetros');
     console.log('2. Celsius para Fahrenheit');
     console.log('3. Sair');
+    
 }
 
 function startApp () {
