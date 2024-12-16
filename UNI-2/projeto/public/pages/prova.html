@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Prova</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='../js/main.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <button onclick="gerarTabela()">Gerar Tabela</button>
+    <button onclick="apagarDados()">Apagar Dados</button>
+    <button onclick="maiorNumero()"> Mostrar Maior Número </button>
+    <table class="table">
+            <thead>
+                <tr>
+                  <th>Operação</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td id="operacaoSoma"></td>
+                    <td id="resultadoSoma"></td>
+                </tr>
+                <tr>
+                    <td id="operacaoSubtracao"></td>
+                    <td id="resultadoSubtracao"></td>
+                </tr>
+                <tr>
+                    <td id="operacaoDivisao"></td>
+                    <td id="resultadoDivisao"></td>
+                </tr>
+                <tr>
+                    <td id="operacaoMultiplicacao"></td>
+                    <td id="resultadoMultiplicacao"></td>
+                </tr>
+              </tbody>
+        </table>
+    </body>
+</html>
