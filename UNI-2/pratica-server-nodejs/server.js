@@ -3,8 +3,23 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-    const filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url);
+    const filePath = path.join(__dirname, 'public/index.html');
     let extname = path.extname(filePath);
+
+    switch (req.url) {
+        case '/projeto1':
+            filePath = path.join(__dirname, 'public/pages/projeto1.html');
+            break;
+        case '/projeto2':
+            filePath = path.join(__dirname, 'public/pages/projeto2.html');
+            break;
+        case '/projeto3':
+            filePath = path.join(__dirname, 'public/pages/projeto3.html');
+            break;
+        default:
+            filePath = path.join(__dirname, 'public', req.url);
+            break;
+    }
 
     let contentType = 'text/html';
     switch (extname) {
