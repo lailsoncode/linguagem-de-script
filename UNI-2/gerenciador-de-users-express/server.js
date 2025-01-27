@@ -39,10 +39,41 @@ const server = http.createServer((req, res) => {
                     res.end(JSON.stringify({ error: 'Name and email are required' }));
                 }
             });
+        } else if (req.method === 'PUT') {
+            let body = '';
+            req.on('data', (chunk) => {
+                body += chunk.toString();
+            });
+            req.on('end', () => {
+                const userId = query.id;
+                const updatedUser = JSON.parse(body);
+                const userIndex = users.findIndex((user) => user.id === userId);
+                if (userIndex !== -1) {
+                    users[userIndex] = { ...users[userIndex], ...updatedUser };
+                    writeUsersToFile(users);
+                    res.writeHead(200, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify(users[userIndex]));
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'application/json' });
+                    res.end(JSON.stringify({ error: 'User not found' }));
+                }
+            });
+        } else if (req.method === 'DELETE') {
+            const userId = query.id;
+            const userIndex = users.findIndex((user) => user.id === userId);
+            if (userIndex !== -1) {
+                const deletedUser = users.splice(userIndex, 1)[0];
+                writeUsersToFile(users);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(deletedUser));
+            } else {
+                res.writeHead(404, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'User not found' }));
+            }
+        } else {
+            res.writeHead(404, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Route not found' }));
         }
-    } else {
-        res.writeHead(404, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Route not found' }));
     }
 });
 
@@ -51,33 +82,3 @@ const port = 3000;
 server.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-
-
-// if (req.method === 'PUT') {
-//     const userId = query.id;
-//     const updatedUser = JSON.parse(body);
-//     const userIndex = users.findIndex((user) => user.id === userId);
-//     if (userIndex !== -1) {
-//         users[userIndex] = { ...users[userIndex], ...updatedUser };
-//         writeUsersToFile(users);
-//         res.writeHead(200, { 'Content-Type': 'application/json' });
-//         res.end(JSON.stringify(users[userIndex]));
-//     } else {
-//         res.writeHead(404, { 'Content-Type': 'application/json' });
-//         res.end(JSON.stringify({ error: 'User not found' }));
-//     }
-// }
-
-// if (req.method === 'DELETE') {
-//     const userId = query.id;
-//     const userIndex = users.findIndex((user) => user.id === userId);
-//     if (userIndex !== -1) {
-//         const deletedUser = users.splice(userIndex, 1)[0];
-//         writeUsersToFile(users);
-//         res.writeHead(200, { 'Content-Type': 'application/json' });
-//         res.end(JSON.stringify(deletedUser));
-//     } else {
-//         res.writeHead(404, { 'Content-Type': 'application/json' });
-//         res.end(JSON.stringify({ error: 'User not found' }));
-//     }
-// }
